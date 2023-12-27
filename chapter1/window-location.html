@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window Location</title>
+    <style>
+      .content {
+        display: flex;
+        flex-direction: column;
+      }
+      .box {
+        display: inline-block;
+        background-color: aqua;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+      .special_box {
+        display: inline-block;
+        background-color: orange;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+      .absContent {
+        position: fixed;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="absContent">
+      <button class="scrollBy">Scroll by 100px(y)</button>
+      <button class="scrollTo">Scroll to 100px(y)</button>
+      <button class="scrollSpecial">Scroll into special</button>
+    </div>
+
+    <div class="content">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="special_box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+  <script>
+    const special = document.querySelector(".special_box");
+    const rect = special.getBoundingClientRect();
+    special.addEventListener("click", (e) => {
+      let clientX = e.clientX;
+      let clientY = e.clientY;
+      let pageX = e.pageX;
+      let pageY = e.pageY;
+
+      console.log(rect);
+      console.log(`client: ${clientX}, ${clientY}`);
+      console.log(`page: ${pageX}, ${pageY}`);
+    });
+
+    const scrollBy = document.querySelector(".scrollBy");
+    const scrollTo = document.querySelector(".scrollTo");
+    const scrollSpecial = document.querySelector(".scrollSpecial");
+
+    scrollBy.addEventListener("click", () => {
+      window.scrollBy({ top: 100, left: 0, behavior: "smooth" });
+    });
+
+    scrollTo.addEventListener("click", () => {
+      window.scrollTo(0, 100);
+    });
+
+    scrollSpecial.addEventListener("click", () => {
+      special.scrollIntoView();
+    });
+  </script>
+</html>
