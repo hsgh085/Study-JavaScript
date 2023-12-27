@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Location</title>
+    <style>
+    body{
+      background-color: black;  
+    }
+    .image{
+        position:absolute;
+        top:0;
+        left: 0;
+    }
+    .left{
+        position: absolute;
+        width:100%;
+        height:1px;
+        background-color: white;
+        transform:translate(-50%); 
+    }
+    .tag{
+        color:white;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <img class="image" src="./images/target.png"></img>
+    <div class="tag"></div>
+  </body>
+  <script>
+    const image = document.querySelector('.image')
+    const tag = document.querySelector('.tag')
+    function updateTag() {
+      tag.innerHTML = `${innerWidth}, ${innerHeight}`;
+    }
+    window.addEventListener('mousemove',(e)=>{
+        const mouseX=e.clientX;
+        const mouseY=e.clientY;
+        image.style.top=mouseY+'px';
+        image.style.left = mouseX +'px';
+        tag.innerHTML = `${mouseX}px, ${mouseY}px`;
+        tag.style.top = mouseY + 'px';
+      tag.style.left = mouseX + 'px';
+      document.querySelector('.left').style.top = mouseY + 'px';
+    })
+  </script>
+</html>
