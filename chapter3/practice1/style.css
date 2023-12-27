@@ -1,0 +1,66 @@
+body {
+  background-color: black;
+}
+ul {
+  margin: 0;
+}
+
+.content {
+  background-color: antiquewhite;
+  margin: 100px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.title {
+  padding: 20px;
+  text-align: center;
+  font-size: large;
+  color: white;
+  background-color: tomato;
+}
+
+.list {
+  padding: 20px;
+  background-color: white;
+}
+
+.inputText {
+  padding: 10px;
+  border: none;
+  width: 100%;
+  background-color: pink;
+  box-sizing: border-box;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: tomato;
+}
+
+.plusBtn {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: orange;
+  cursor: pointer;
+}
+
+.fa-plus {
+  font-size: 20px;
+  color: white;
+}
+
+.fa-trash {
+  color: pink;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
