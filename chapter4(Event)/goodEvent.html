@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .selected {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+    </ul>
+    <script>
+      //Bad
+      //   const lis = document.querySelectorAll("li");
+      //   lis.forEach((li) => {
+      //     li.addEventListener("click", () => {
+      //       li.classList.add("selected");
+      //     });
+      //   });
+
+      //Goooooooood
+      // 부모 안의 자식에게 공통적으로 무언가 처리할 때,
+      // 일일이 각각의 자식에게 이벤트를 등록하는 것이 아니라 부모에게 이벤트를 위임해서 사용
+      const ul = document.querySelector("ul");
+      ul.addEventListener("click", (e) => {
+        //tagName은 대문자 반환
+        if (e.target.tagName == "LI") {
+          e.target.classList.add("selected");
+        }
+      });
+    </script>
+  </body>
+</html>
