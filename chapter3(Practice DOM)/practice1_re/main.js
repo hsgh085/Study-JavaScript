@@ -1,6 +1,7 @@
 const items = document.querySelector(".items");
 const input = document.querySelector(".footer_input");
 const addBtn = document.querySelector(".footer_button");
+const form = document.querySelector(".new_form");
 
 function onAdd() {
   // 1. 사용자가 입력한 텍스트를 받아옴
@@ -65,14 +66,19 @@ function createItem(text) {
   return itemRow;
 }
 
-addBtn.addEventListener("click", () => {
-  onAdd();
-});
+// addBtn.addEventListener("click", () => {
+//   onAdd();
+// });
 
-input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    onAdd();
-  }
+// input.addEventListener("keydown", (e) => {
+//   if (e.key === "Enter") {
+//     onAdd();
+//   }
+// });
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  onAdd();
 });
 
 items.addEventListener("click", (e) => {
